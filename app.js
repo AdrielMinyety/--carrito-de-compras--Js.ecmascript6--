@@ -230,7 +230,7 @@ function crearFactura() {
        let template = `
         <div class="font-weight-bold m-1">
             <p class="m-0">                
-                (${articulo.cantidad}) ${articulo.articulo} <span class="precio text-info">${articulo.precio}$</span>
+                (${articulo.cantidad}) ${articulo.articulo} <span class="precio text-info">${parseFloat(articulo.precio).toFixed(2)}$</span>
                 <i class="fas fa-tag"></i>
             </p>
             <span class="font-weight-light">($ por unidad: ${parseFloat(articulo.precio/articulo.cantidad).toFixed(2)})</span>
