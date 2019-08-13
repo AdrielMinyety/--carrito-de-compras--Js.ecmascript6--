@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">   
+    <title>SuperMercado</title>
+    <style>
+
+        body {
+            cursor: default;
+        }
+    
+        li, ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 5%;
+        }
+
+        a.llevar-articulo:hover {
+            cursor: grab!important;
+        }
+        
+        .fa-minus-circle, .producto {
+            cursor: pointer;
+        }
+
+        .pasillo {
+            display: block;
+            width: 100%;
+            height: 75px;
+            /* margin-left: 5%; */
+            margin-bottom: 5%;
+            background-color: antiquewhite;
+        }
+
+        span.text-muted {
+            font-size: 25px;
+        }
+
+        .notificacion {
+            top: 16px;
+            left: 62px;
+            border: 4px solid transparent;
+            transition: all .4s ease-in-out;
+        }
+
+        .success {
+            border: 4px solid #4dff4d;
+            box-shadow: 0 0 1rem #33ff00!important;
+        }
+
+        .deleted {
+            border: 4px solid #ff8080;
+            box-shadow: 0 0 1rem #dc3545!important;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header bg-primary p-5">
+        <h1 class="text-uppercase text-center text-white font-weight-bold">Super Mecard<i class="fas fa-store"></i></h1>
+    </div>
+    <div class="fixed-top">
+        <h4 class="notificacion bg-light shadow rounded-circle d-inline-block p-3 m-1">
+            <a href="#cliente" class="text-dark">
+                <i class="fas fa-cart-arrow-down"></i>
+            </a>
+            <!-- <div class="notificacion d-none position-absolute alert alert-light m-0 p-1" role="alert">
+                Articulo agregado
+            </div> -->
+        </h4>
+    </div>
+    <div class="container">
+        <div id="cliente" class="cliente card shadow w-75 mx-auto my-4">
+            <h2 class="card-header"><i class="fas fa-shopping-cart"></i> Cliente</h2>
+            <div class="card-body">
+                <div class="carrito p-2 border text-center">
+                    
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-cash-register"></i> - TOTAL</span>
+                            </div>
+                            <div id="total" class="form-control bg-light font-weight-bold">
+                                0.00$
+                            </div>
+                        </div>                      
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="float-right">
+                            <button type="button" class="comprar-productos btn btn-success mb-2" data-toggle="modal" data-target="#caja">
+                                    Comprar productos
+                            </button>                                
+                            <a href="#" class="vaciar-carrito btn btn-light border mb-2">Vaciar Carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mercado container-fluid bg-info">
+        <div class="row">
+            <div class="col-md-4 p-0">
+                <div class="pasillo my-5"></div>
+                <div class="pasillo-1 px-5">
+                    <h2 class="text-center text-danger p-2 mb-5 bg-white d-block rounded">1 <br> <span class="text-muted font-weight-light">( Alimentos )</span> </h2>
+                    <ul class="seccion">
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Huevos <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">120.16$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="01">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Leche <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">56.48$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="02">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Pan Integral <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">147.98$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="03">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Jugo de Naranja <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">80.50$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="04">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 p-0">
+                <div class="pasillo my-5"></div>
+                <div class="pasillo-2 px-5">
+                    <h2 class="text-center text-danger p-2 mb-5 bg-white d-block rounded">2 <br> <span class="text-muted font-weight-light">( Aceo )</span> </h2>
+                    <ul class="seccion">
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Detergente <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">105.10$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="05">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Cloro <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">30.89$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="06">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Jabon liquido <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">89.99$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="07">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Mistolín <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">63.95$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="08">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>  
+                    </ul>
+                </div>                        
+            </div>
+            <div class="col-md-4 p-0">
+                <div class="pasillo my-5"></div>
+                <div class="pasillo-3 px-5">
+                    <h2 class="text-center text-danger p-2 mb-5 bg-white d-block rounded">3 <br> <span class="text-muted font-weight-light">( Electrónica )</span> </h2>
+                    <ul class="seccion">
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Pineapple Xs <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">16500.45$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="09">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Laptop Dell varrio <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">25995.98$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="10">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Mac ito pATRAkad04 <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">4800.42$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="11">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="producto">
+                            <div class="card text-center">
+                                <p class="articulo font-weight-bold card-header">Sony Y9 Ma rio <i class="fas fa-tag"></i></p>
+                                <span class="precio text-muted">6000.25$</span>
+                                <div class="card-footer">
+                                    <a href="#" class="llevar-articulo btn btn-primary btn-block" data-id="12">Llevar <i class="fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </li>   
+                    </ul>
+                </div>                        
+            </div>
+        </div>
+    </div>
+      
+    <!-- Modal -->
+    <div class="modal fade" id="caja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cajero <i class="fas fa-cash-register"></i></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h2><i class="fas fa-receipt"></i> Factura:</h2>
+            <div id="recivo">
+
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="font-weight-bold">
+                Total a pagar: <div id="total">0.00$</div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="pagar">Pagar <i class="fas fa-money-check-alt"></i></button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+<script src="app.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
