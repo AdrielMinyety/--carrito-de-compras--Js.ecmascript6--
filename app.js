@@ -24,7 +24,7 @@ function cargarEventListeners(e) {
             alert("Seleccione productos para comprar.");
         }else {
             varciarLocalStorage();
-            alert("Gracias por su comprar!!");
+            alert("Gracias por su compra!!");
             location.reload();
         }
     });
